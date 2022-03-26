@@ -12,15 +12,18 @@ def replace_text_with_emoji(input_text):
 	input_text = input_text.replace(":large_green_square:", "🟩")
 	return input_text
 
+def read_input_file():
+	lines = []
+	with open("input.txt", 'r') as file_in:
+		for line in file_in:
+			stripped_line = line.strip()
+			line_with_emojis = replace_text_with_emoji(stripped_line)
+			lines.append(line_with_emojis)
+	return lines
+
 def main():
-	shared_result = """:black_large_square::black_large_square::black_large_square::black_large_square::large_yellow_square:
-:black_large_square::black_large_square::black_large_square::large_yellow_square::black_large_square:
-:black_large_square::black_large_square::large_yellow_square::black_large_square::black_large_square:
-:large_green_square::black_large_square::black_large_square::large_yellow_square::black_large_square:
-:large_green_square::large_green_square::large_green_square::large_green_square::large_green_square:
-	"""
-	shared_result = replace_text_with_emoji(shared_result)
-	print(shared_result)
+	lines = read_input_file()
+	print(lines)
 
 if __name__ == "__main__":
 	main()

@@ -21,6 +21,10 @@ def read_input_file():
 	with open("input.txt", 'r') as file_in:
 		for line in file_in:
 			stripped_line = line.strip()
+
+			if stripped_line == "": # skip blank lines
+				continue
+
 			line_with_emojis = replace_text_with_emoji(stripped_line)
 			lines.append(line_with_emojis)
 

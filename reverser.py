@@ -35,7 +35,6 @@ def read_input_file():
 	return wordle_entries
 
 def parse_wordle_entry(wordle_entry: list) -> WordleEntry:
-	wordle_entry.reverse() # reverse the order since we need to work backward toward the first word the user guessed
 	word_of_the_day = wordle_entry[0]
 	word_of_the_day_letters = list(word_of_the_day)
 

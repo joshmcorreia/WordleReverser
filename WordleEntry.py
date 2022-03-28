@@ -38,9 +38,22 @@ class WordleEntry:
 			letter_list = []
 		return possible_letter_matrix
 
+	def find_possible_words(self, row_letter_matrix: list):
+		"""
+		Builds a list of possible words based on the row_letter_matrix
+
+		Example: if we know the first letter can only be ['n', 'y'], then all words that don't match this are removed from possible_words
+		"""
+		good_possible_words = []
+		for possible_word in possible_words: # loop over each possible word to see if it fits the criteria of the row_letter_matrix
+			if check_if_word_fits(possible_word=possible_word, row_letter_matrix=row_letter_matrix) == True:
+				good_possible_words.append(possible_word)
+		print(good_possible_words)
+
 	def create_letter_matrix(self):
 		letter_matrix = []
 		possible_letter_matrix = self.get_possible_letter_matrix()
 		for row in possible_letter_matrix:
-			print(row)
+			self.find_possible_words(row)
+			print()
 		return letter_matrix

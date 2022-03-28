@@ -35,7 +35,7 @@ def read_input_file():
 	return wordle_entries
 
 def parse_wordle_entry(wordle_entry: list) -> WordleEntry:
-	word_of_the_day = wordle_entry[-1]
+	word_of_the_day = wordle_entry[-1].lower()
 	word_of_the_day_letters = list(word_of_the_day)
 
 	wordle_matrix = []

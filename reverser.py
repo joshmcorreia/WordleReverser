@@ -56,7 +56,9 @@ def main():
 			all_possible_words = possible_first_words
 			continue
 		all_possible_words = list(set(all_possible_words) & set(possible_first_words)) # get the intersection between all lists and removes duplicates
-	print(all_possible_words)
+	print("It looks like the person who solved these Wordles is using one of the following words:")
+	for word in all_possible_words:
+		print(word)
 
 if __name__ == "__main__":
 	main()

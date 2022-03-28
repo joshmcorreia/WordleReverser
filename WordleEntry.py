@@ -16,7 +16,7 @@ class WordleEntry:
 	def get_possible_letter_matrix(self) -> list:
 		possible_letter_matrix = []
 		letter_list = []
-		for row_index, row in enumerate(self.emoji_matrix):
+		for row in self.emoji_matrix:
 			for letter_index, emoji in enumerate(row):
 				if emoji == "🟩":
 					corresponding_letter_of_the_day = [self.word_of_the_day_matrix[letter_index]]

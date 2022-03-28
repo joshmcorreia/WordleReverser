@@ -1,4 +1,3 @@
-from words import possible_words
 from WordleEntry import WordleEntry
 
 def replace_text_with_emoji(input_text: str) -> str:
@@ -53,7 +52,7 @@ def main():
 	print(wordle_entries)
 	for entry in wordle_entries:
 		wordle_entry = parse_wordle_entry(entry)
-		print(wordle_entry.emoji_matrix)
+		print(wordle_entry.letter_matrix)
 
 if __name__ == "__main__":
 	main()

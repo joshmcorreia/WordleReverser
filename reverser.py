@@ -7,6 +7,8 @@ def replace_text_with_emoji(input_text: str) -> str:
 
 	Ex: `:black_large_square:` -> `⬛`
 	"""
+	input_text = input_text.replace("⬜", "⬛") # convert light mode to dark mode
+	input_text = input_text.replace(":white_large_square:", "⬛") # convert light mode to dark mode
 	input_text = input_text.replace(":black_large_square:", "⬛")
 	input_text = input_text.replace(":large_yellow_square:", "🟨")
 	input_text = input_text.replace(":large_green_square:", "🟩")

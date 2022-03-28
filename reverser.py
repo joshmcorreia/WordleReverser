@@ -39,7 +39,7 @@ def parse_wordle_entry(wordle_entry: list) -> WordleEntry:
 	word_of_the_day_letters = list(word_of_the_day)
 
 	wordle_matrix = []
-	wordle_entry_rows_only = wordle_entry[1:] # remove the first entry since that's the word of the day
+	wordle_entry_rows_only = wordle_entry[:-1] # remove the last entry since that's the word of the day
 	for row in wordle_entry_rows_only:
 		row_list = list(row)
 		wordle_matrix.append(row_list)
@@ -48,10 +48,8 @@ def parse_wordle_entry(wordle_entry: list) -> WordleEntry:
 
 def main():
 	wordle_entries = read_input_file()
-	print(wordle_entries)
 	for entry in wordle_entries:
 		wordle_entry = parse_wordle_entry(entry)
-		print(wordle_entry.letter_matrix)
 
 if __name__ == "__main__":
 	main()

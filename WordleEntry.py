@@ -1,5 +1,13 @@
 from words import possible_words
 
+all_letters_list = list("abcdefghijklmnopqrstuvwxyz")
+
+def check_if_word_fits(possible_word: str, row_letter_matrix: list):
+	for index, letter in enumerate(possible_word):
+		if letter not in row_letter_matrix[index]:
+			return False
+	return True
+
 class WordleEntry:
 	def __init__(self, word_of_the_day_matrix, emoji_matrix):
 		self.word_of_the_day_matrix = word_of_the_day_matrix
@@ -25,7 +33,7 @@ class WordleEntry:
 					possible_letters = self.get_list_of_possible_yellow_letters(letter_index)
 					letter_list.append(possible_letters)
 				else:
-					letter_list.append(list("abcdefghijklmnopqrstuvwxyz"))
+					letter_list.append(all_letters_list)
 			possible_letter_matrix.append(letter_list)
 			letter_list = []
 		return possible_letter_matrix

@@ -25,7 +25,7 @@ class WordleEntry:
 					possible_letters = self.get_list_of_possible_yellow_letters(letter_index)
 					letter_list.append(possible_letters)
 				else:
-					letter_list.append(None) # In this instance, `None` represents that it can be any letter. This is simpler/prettier than having A-Z
+					letter_list.append(list("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
 			possible_letter_matrix.append(letter_list)
 			letter_list = []
 		return possible_letter_matrix

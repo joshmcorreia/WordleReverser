@@ -13,7 +13,7 @@ class WordleEntry:
 		self.word_of_the_day_matrix = word_of_the_day_matrix
 		self.emoji_matrix = emoji_matrix
 		self.entry_matrix = None
-		self.letter_matrix = self.create_letter_matrix()
+		self.possible_first_words = self.get_possible_first_words()
 
 	def get_list_of_possible_yellow_letters(self, index: int) -> list:
 		possible_letters = self.word_of_the_day_matrix.copy()
@@ -48,12 +48,8 @@ class WordleEntry:
 		for possible_word in possible_words: # loop over each possible word to see if it fits the criteria of the row_letter_matrix
 			if check_if_word_fits(possible_word=possible_word, row_letter_matrix=row_letter_matrix) == True:
 				good_possible_words.append(possible_word)
-		print(good_possible_words)
+		return good_possible_words
 
-	def create_letter_matrix(self):
-		letter_matrix = []
+	def get_possible_first_words(self):
 		possible_letter_matrix = self.get_possible_letter_matrix()
-		for row in possible_letter_matrix:
-			self.find_possible_words(row)
-			print()
-		return letter_matrix
+		return self.find_possible_words(possible_letter_matrix[0])

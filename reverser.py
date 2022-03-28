@@ -48,8 +48,15 @@ def parse_wordle_entry(wordle_entry: list) -> WordleEntry:
 
 def main():
 	wordle_entries = read_input_file()
-	for entry in wordle_entries:
+	all_possible_words = []
+	for index, entry in enumerate(wordle_entries):
 		wordle_entry = parse_wordle_entry(entry)
+		possible_first_words = wordle_entry.possible_first_words
+		if index == 0: # populate all_possible_words the first times, and the subsequent times will all be intersections
+			all_possible_words = possible_first_words
+			continue
+		all_possible_words = list(set(all_possible_words) & set(possible_first_words)) # get the intersection between all lists and removes duplicates
+	print(all_possible_words)
 
 if __name__ == "__main__":
 	main()

@@ -1,6 +1,7 @@
 from words import possible_words
+from WordleEntry import WordleEntry
 
-def replace_text_with_emoji(input_text):
+def replace_text_with_emoji(input_text: str) -> str:
 	"""
 	Replaces the input text with an emoji. This may not always be necessary,
 	but I've noticed it is necessary when copying/pasting from Slack.
@@ -34,9 +35,25 @@ def read_input_file():
 				lines = []
 	return wordle_entries
 
+def parse_wordle_entry(wordle_entry: list) -> WordleEntry:
+	wordle_entry.reverse() # reverse the order since we need to work backward toward the first word the user guessed
+	word_of_the_day = wordle_entry[0]
+	word_of_the_day_letters = list(word_of_the_day)
+
+	wordle_matrix = []
+	wordle_entry_rows_only = wordle_entry[1:] # remove the first entry since that's the word of the day
+	for row in wordle_entry_rows_only:
+		row_list = list(row)
+		wordle_matrix.append(row_list)
+
+	return WordleEntry(word_of_the_day_matrix=word_of_the_day_letters, emoji_matrix=wordle_matrix)
+
 def main():
-	lines = read_input_file()
-	print(lines)
+	wordle_entries = read_input_file()
+	print(wordle_entries)
+	for entry in wordle_entries:
+		wordle_entry = parse_wordle_entry(entry)
+		print(wordle_entry.emoji_matrix)
 
 if __name__ == "__main__":
 	main()

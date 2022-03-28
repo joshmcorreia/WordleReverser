@@ -16,12 +16,8 @@ This project doesn't have a particularly useful real-world application, it's jus
 4. You'll get an output similar to the following:
 ```
 It looks like the person who solved these Wordles is using one of the following words:
-cerne
 crime
-crone
-creme
+crame
 crine
 crane
-crome
-crame
 ```

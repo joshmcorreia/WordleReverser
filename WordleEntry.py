@@ -32,8 +32,12 @@ class WordleEntry:
 				elif emoji == "🟨":
 					possible_letters = self.get_list_of_possible_yellow_letters(letter_index)
 					letter_list.append(possible_letters)
-				else:
-					letter_list.append(all_letters_list)
+				elif emoji == "⬛":
+					possible_letters = all_letters_list.copy()
+					for letter in self.word_of_the_day_matrix: # since the emoji is black, we know none of the letters in the word of the day can be in these slots
+						if letter in possible_letters:
+							possible_letters.remove(letter)
+					letter_list.append(possible_letters)
 			possible_letter_matrix.append(letter_list)
 			letter_list = []
 		return possible_letter_matrix
